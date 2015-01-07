@@ -2,7 +2,8 @@
 [![NPM version][npm-image]][npm-url]
 [![Downloads][downloads-image]][downloads-url]
 
-Write a representation of a directory to a `JSON` file.
+Write a representation of a directory to a `JSON` file. Small wrapper
+around [directory-to-object][dto].
 
 ## Installation
 ```bash
