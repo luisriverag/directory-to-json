@@ -1,7 +1,6 @@
 
 const debug   = require('debug')('directory-to-json')
 const dto     = require('directory-to-object')
-const resumer = require('resumer')
 const assert  = require('assert')
 const path    = require('path')
 const fs      = require('fs')
@@ -38,17 +37,10 @@ function readDir(src, cb) {
 // @param {String} file
 // @param {function} cb
 function writeFile(dest, file, cb) {
-  const s = createStream()
-
-  s.on('end', function() {
-    debug('end')
+  const ws = fs.createWriteStream(dest)
+  ws.once('open', function() {
+    this.write(JSON.stringify(file))
+    this.end()
     cb()
   })
-
-  s.pipe(fs.createWriteStream(dest))
-
-  function createStream() {
-    const stream = resumer()
-    return stream.queue(JSON.stringify(file))
-  }
 }
