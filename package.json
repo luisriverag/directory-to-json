@@ -19,8 +19,7 @@
   "license": "MIT",
   "dependencies": {
     "debug": "^2.1.1",
-    "directory-to-object": "^1.0.0",
-    "resumer": "0.0.0"
+    "directory-to-object": "^1.0.0"
   },
   "devDependencies": {
     "eslint": "^0.11.0",
