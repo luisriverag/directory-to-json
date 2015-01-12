@@ -17,6 +17,17 @@ const dtj = require('directory-to-json')
 dtj('./mydir', './outfile.json', (err) => console.log(err))
 ```
 
+## API
+#### dto(opts|inPath, outPath, callback)
+```js
+dtj(path.resolve('./test'), './outfile.json', (err, res) => console.log(res))
+
+// `noDot` ignores files which have a leading `.`
+// in the filename.
+const opts = {noDot: true, path: path.resolve('./test')}
+dto(opts, './outfile.json', (err, res) => console.log(res))
+```
+
 ## Why?
 When parsing several directories of files it's nice to _just_ have to
 provide a path rather than creating an index object manually. This is useful
